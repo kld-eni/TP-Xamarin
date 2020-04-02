@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:utils="clr-namespace:Xamarin_Module4.Utils"
+             mc:Ignorable="d"
+             x:Class="Xamarin_Module4.MainPage">
+
+    <StackLayout Orientation="Vertical">
+        <StackLayout BackgroundColor="#58B0F0">
+            <Grid Margin="10, 25">
+                <Image Source="{utils:ImageFromResources Xamarin_Module4.Images.baseline_create.png}" Grid.Column="0" HorizontalOptions="StartAndExpand" Aspect="AspectFill" WidthRequest="25"/>
+                <Label Text="Accueil" TextColor="#ffffff" Grid.Column="1" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="20"/>
+                <Image Source="{utils:ImageFromResources Xamarin_Module4.Images.baseline_search.png}" Grid.Column="2" HorizontalOptions="EndAndExpand" Aspect="AspectFill"  WidthRequest="25"/>
+            </Grid>
+        </StackLayout>
+
+        <StackLayout x:Name="loginForm">
+            <Label Text="Connexion à Twitter" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="login" Placeholder="Identifiant Twitter" HorizontalOptions="FillAndExpand" ReturnType="Next" Keyboard="Email"/>
+            <Entry x:Name="password" Placeholder="Mot de passe" HorizontalOptions="FillAndExpand" ReturnType="Next" IsPassword="True"/>
+            <StackLayout Orientation="Horizontal">
+                <Switch x:Name="rememberMe"/>
+                <Label Text="Mémoriser mes informations" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <Label x:Name="error" TextColor="#ff0000" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" IsVisible="False"/>
+            <Button Text="Se connecter" HorizontalOptions="FillAndExpand" Clicked="Connection_Clicked"/>
+        </StackLayout>
+
+        <ScrollView x:Name="content" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="False">
+            <StackLayout Orientation="Vertical">
+                <StackLayout Margin="10" Orientation="Horizontal">
+                    <Image Margin="10" WidthRequest="75" Aspect="AspectFit" Source="https://picsum.photos/50/50/?random"/>
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Kévin" TextColor="#000000"/>
+                            <Label Text="@kévinledevehat" TextColor="#000000"/>
+                            <Label Text="50s" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                        <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." TextColor="#000000"/>
+                    </StackLayout>
+                </StackLayout>
+                <Grid>
+                    <Image Source="{utils:ImageFromResources Xamarin_Module4.Images.baseline_reply.png}" Grid.Column="0" HorizontalOptions="CenterAndExpand" Aspect="AspectFill"/>
+                    <Image Source="{utils:ImageFromResources Xamarin_Module4.Images.baseline_repeat.png}" Grid.Column="1" HorizontalOptions="CenterAndExpand" Aspect="AspectFill"/>
+                    <Image Source="{utils:ImageFromResources Xamarin_Module4.Images.baseline_favorite.png}" Grid.Column="2" HorizontalOptions="CenterAndExpand" Aspect="AspectFill"/>
+                </Grid>
+                <StackLayout HeightRequest=".5" BackgroundColor="#BBBBBB"/>
+            </StackLayout>
+        </ScrollView>
+
+        <Grid HeightRequest="75" VerticalOptions="EndAndExpand">
+            <Label Text="Fil" VerticalTextAlignment="Center" Grid.Column="0" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Notifications" VerticalTextAlignment="Center" Grid.Column="1" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Messages" VerticalTextAlignment="Center" Grid.Column="2" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Moi" VerticalTextAlignment="Center" Grid.Column="3" HorizontalOptions="CenterAndExpand"/>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

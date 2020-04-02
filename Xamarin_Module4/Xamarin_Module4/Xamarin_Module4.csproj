@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\baseline_create.png" />
+    <None Remove="Images\baseline_favorite.png" />
+    <None Remove="Images\baseline_repeat.png" />
+    <None Remove="Images\baseline_reply.png" />
+    <None Remove="Images\baseline_search.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\baseline_create.png" />
+    <EmbeddedResource Include="Images\baseline_favorite.png" />
+    <EmbeddedResource Include="Images\baseline_repeat.png" />
+    <EmbeddedResource Include="Images\baseline_reply.png" />
+    <EmbeddedResource Include="Images\baseline_search.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
+  </ItemGroup>
+</Project>
