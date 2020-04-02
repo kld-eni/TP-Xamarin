@@ -22,59 +22,52 @@ namespace Xamarin_Module4
             InitializeComponent();
         }
 
-        public void Connection_Clicked(object sender, EventArgs e)
+        public async void Connection_Clicked(object sender, EventArgs e)
         {
-            this.ErrorDisplay(false);
+            ErrorDisplay(false);
 
-            if (this.login.Text == null || string.IsNullOrEmpty(this.login.Text.ToString()))
+            if (login.Text == null || string.IsNullOrEmpty(login.Text.ToString()))
             {
-                this.ErrorDisplay(true, "Identifiant obligatoire");
+                ErrorDisplay(true, "Identifiant obligatoire");
                 return;
             }
-            if (this.login.Text.Length < 3)
+            if (login.Text.Length < 3)
             {
-                this.ErrorDisplay(true, "L'identifiant doit faire au moins 3 caractères");
+                ErrorDisplay(true, "L'identifiant doit faire au moins 3 caractères");
                 return;
             }
-            if (this.password.Text == null || string.IsNullOrEmpty(this.password.Text.ToString()))
+            if (password.Text == null || string.IsNullOrEmpty(password.Text.ToString()))
             {
-                this.ErrorDisplay(true, "Mot de passe obligatoire");
+                ErrorDisplay(true, "Mot de passe obligatoire");
                 return;
             }
-            if (this.password.Text.Length < 6)
+            if (password.Text.Length < 6)
             {
-                this.ErrorDisplay(true, "Le mot de passe doit faire au moins 6 caractères");
+                ErrorDisplay(true, "Le mot de passe doit faire au moins 6 caractères");
                 return;
             }
+
             NetworkAccess networkAccess = Connectivity.NetworkAccess;
-
             if (networkAccess != NetworkAccess.Internet)
             {
-                this.ErrorDisplay(true, "Veuillez vous connecter à internet");
+                ErrorDisplay(true, "Veuillez vous connecter à internet");
                 return;
             }
-            if (!this.twitterService.Authenticate(this.login.Text, this.password.Text))
+            if (!twitterService.Authenticate(login.Text, password.Text))
             {
-                this.ErrorDisplay(true, "L'identifiant et/ou le mot de passe sont incorrects");
+                ErrorDisplay(true, "L'identifiant et/ou le mot de passe sont incorrects");
                 return;
             }
-            this.TweetsList.ItemsSource = twitterService.GetTweets();
-            this.ShowContent();
+            await Navigation.PushAsync(new TweetsPage());
         }
 
         private void ErrorDisplay(bool visibility, string message = null)
         {
             if (message != null)
             {
-                this.error.Text = message;
+                error.Text = message;
             }
-            this.error.IsVisible = visibility;
-        }
-
-        private void ShowContent()
-        {
-            this.loginForm.IsVisible = false;
-            this.content.IsVisible = true;
+            error.IsVisible = visibility;
         }
     }
 }

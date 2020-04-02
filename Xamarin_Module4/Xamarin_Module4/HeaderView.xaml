@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:utils="clr-namespace:Xamarin_Module4.Utils"
+             mc:Ignorable="d"
+             x:Class="Xamarin_Module4.HeaderView">
+  <ContentView.Content>
+        <StackLayout BackgroundColor="#58B0F0">
+            <Grid Margin="10, 25">
+                <Image Source="{utils:ImageFromResources Xamarin_Module4.Images.baseline_create.png}" Grid.Column="0" HorizontalOptions="StartAndExpand" Aspect="AspectFill" WidthRequest="25"/>
+                <Label Text="Accueil" TextColor="#ffffff" Grid.Column="1" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="20" VerticalTextAlignment="Center"/>
+                <Image Source="{utils:ImageFromResources Xamarin_Module4.Images.baseline_search.png}" Grid.Column="2" HorizontalOptions="EndAndExpand" Aspect="AspectFill"  WidthRequest="25"/>
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
