@@ -29,25 +29,33 @@
         </StackLayout>
 
         <ScrollView x:Name="content" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="False">
-            <StackLayout Orientation="Vertical">
-                <StackLayout Margin="10" Orientation="Horizontal">
-                    <Image Margin="10" WidthRequest="75" Aspect="AspectFit" Source="https://picsum.photos/50/50/?random"/>
-                    <StackLayout Orientation="Vertical">
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Kévin" TextColor="#000000"/>
-                            <Label Text="@kévinledevehat" TextColor="#000000"/>
-                            <Label Text="50s" HorizontalOptions="EndAndExpand"/>
-                        </StackLayout>
-                        <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." TextColor="#000000"/>
-                    </StackLayout>
-                </StackLayout>
-                <Grid>
-                    <Image Source="{utils:ImageFromResources Xamarin_Module4.Images.baseline_reply.png}" Grid.Column="0" HorizontalOptions="CenterAndExpand" Aspect="AspectFill"/>
-                    <Image Source="{utils:ImageFromResources Xamarin_Module4.Images.baseline_repeat.png}" Grid.Column="1" HorizontalOptions="CenterAndExpand" Aspect="AspectFill"/>
-                    <Image Source="{utils:ImageFromResources Xamarin_Module4.Images.baseline_favorite.png}" Grid.Column="2" HorizontalOptions="CenterAndExpand" Aspect="AspectFill"/>
-                </Grid>
-                <StackLayout HeightRequest=".5" BackgroundColor="#BBBBBB"/>
-            </StackLayout>
+            <ListView x:Name="TweetsList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Margin="10" Orientation="Horizontal">
+                                    <Image Margin="10" WidthRequest="75" Aspect="AspectFit" Source="{Binding TweetPicture}"/>
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Author.Name}" TextColor="#000000"/>
+                                            <Label Text="{Binding Author.Alias}" TextColor="#000000"/>
+                                            <Label Text="{Binding CreationDate}" HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                        <Label Text="{Binding TweetText}" TextColor="#000000"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <Grid>
+                                    <Image Source="{utils:ImageFromResources Xamarin_Module4.Images.baseline_reply.png}" Grid.Column="0" HorizontalOptions="CenterAndExpand" Aspect="AspectFill" WidthRequest="25"/>
+                                    <Image Source="{utils:ImageFromResources Xamarin_Module4.Images.baseline_repeat.png}" Grid.Column="1" HorizontalOptions="CenterAndExpand" Aspect="AspectFill" WidthRequest="25"/>
+                                    <Image Source="{utils:ImageFromResources Xamarin_Module4.Images.baseline_favorite.png}" Grid.Column="2" HorizontalOptions="CenterAndExpand" Aspect="AspectFill" WidthRequest="25"/>
+                                </Grid>
+                                <StackLayout HeightRequest=".5" BackgroundColor="#BBBBBB"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </ScrollView>
 
         <Grid HeightRequest="75" VerticalOptions="EndAndExpand">

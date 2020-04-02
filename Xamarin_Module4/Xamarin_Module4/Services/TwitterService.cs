@@ -15,12 +15,12 @@ namespace Xamarin_Module4.Services
             return login == u1.Login && password == u1.Password; 
         }
 
-        public List<Tweet> GetTweets(string filter)
+        public List<Tweet> GetTweets(string filter = null)
         {
             return new List<Tweet>
             {
-                new Tweet {Author = u1, CreationDate = "30/03/2020", Id = "1", Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-                new Tweet {Author = u1, CreationDate = "01/04/2020", Id = "2", Text = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
+                new Tweet {Author = u1, CreationDate = "30/03/2020", Id = "1", TweetText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+                new Tweet {Author = u1, CreationDate = "01/04/2020", Id = "2", TweetText = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
             };
         }
     }

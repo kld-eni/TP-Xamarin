@@ -58,6 +58,7 @@ namespace Xamarin_Module4
                 this.ErrorDisplay(true, "L'identifiant et/ou le mot de passe sont incorrects");
                 return;
             }
+            this.TweetsList.ItemsSource = twitterService.GetTweets();
             this.ShowContent();
         }
 

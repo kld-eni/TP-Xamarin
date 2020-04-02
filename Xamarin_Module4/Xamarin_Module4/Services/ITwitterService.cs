@@ -9,6 +9,6 @@ namespace Xamarin_Module4.Services
     {
         bool Authenticate(string login, string password);
 
-        List<Tweet> GetTweets(string filter);
+        List<Tweet> GetTweets(string filter = null);
     }
 }
